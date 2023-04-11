@@ -15,7 +15,11 @@ function showTab(n) {
     }
     else if (n == (x.length - 1)) {
         document.getElementById("nextBtn").innerHTML = "Submit";
-    } else {
+        var subbut = document.getElementById("nextBtn")
+        subbut.onclick = MainFunction;
+
+    }
+    else {
         document.getElementById("nextBtn").innerHTML = "Next";
     }
 
@@ -67,10 +71,10 @@ function fixStepIndicator(n) {
 
     var i, x = document.getElementsByClassName("step");
     for (i = 0; i < x.length; i++) {
-        x[i].className = x[i].className.replace(" active", "");
+        x[i].class = x[i].class.replace(" active", "");
     }
 
-    x[n].className += " active";
+    x[n].class += " active";
 }
 
 function description(x) {
@@ -89,17 +93,36 @@ function back(x, event) {
 }
 
 // logic
-let thickness = null;
-let pregnancy;
+
+let pregnancy = 0;
 let bloodpressure;
-let glucose = null;
+let glucose;
 let insulin;
 let pedigree;
 let age;
-let BMI;
+let bmi = 0;
 
+// function tricepThickness() {
+
+//     // const options = document.getElementsByName('1');
+//     // for (let i = 0; i < options.length; i++) {
+//     //     if (options[i].checked) {
+//     //         const valueRange = options[i].value.split('-');
+//     //         const min = parseInt(valueRange[0]);
+//     //         const max = parseInt(valueRange[1]);
+//     //         let thickness = Math.floor(Math.random() * (max - min + 1) + min);
+//     //         console.log(thickness)
+//     //         break;
+//     //     }
+//     // }
+
+
+
+// }
 function tricepThickness() {
     const options = document.getElementsByName('1');
+    let thickness;
+
     for (let i = 0; i < options.length; i++) {
         if (options[i].checked) {
             const valueRange = options[i].value.split('-');
@@ -107,25 +130,42 @@ function tricepThickness() {
             const max = parseInt(valueRange[1]);
             thickness = Math.floor(Math.random() * (max - min + 1) + min);
             break;
+           
         }
+        console.log(thickness);
+        return thickness;
     }
-    if (thickness !== null) {
-        // Use the selected thickness as needed
-        console.log(`Selected tricep thickness: ${thickness}`);
-    } else {
-        alert('Please select an option');
-    }
+
+   
 }
 
 
 function bloodPressure() {
-    let option1 = document.getElementById("pressure1");
-    let option2 = document.getElementById("pressure2");
+    // let option1 = document.getElementById("pressure1");
+    // let option2 = document.getElementById("pressure2");
 
-    if (option1.checked) {
-        bloodpressure = Math.floor(Math.random() * (130 - 80 + 1)) + 80;
-    } else if (option2.checked) {
-        bloodpressure = Math.floor(Math.random() * (80 - 50 + 1)) + 50;
+    // if (option1.checked) {
+    //     bloodpressure = Math.floor(Math.random() * (130 - 80 + 1)) + 80;
+    // } else {
+    //     bloodpressure = Math.floor(Math.random() * (80 - 50 + 1)) + 50;
+    // }
+
+    // const selectedOption = document.querySelector('input[name="2"]:checked').value;
+
+    // if (selectedOption === "high") {
+    //     bloodpressure = Math.floor(Math.random() * (130 - 80 + 1)) + 80;
+    // } else if (selectedOption === "low") {
+    //     bloodpressure = Math.floor(Math.random() * (80 - 50 + 1)) + 50;
+    // }
+    const selectedOption = document.querySelector('input[name="bloodpressure"]:checked');
+    if (selectedOption !== null) {
+        if (selectedOption.value === "high") {
+            bloodpressure = Math.floor(Math.random() * (130 - 80 + 1)) + 80;
+        } else if (selectedOption.value === "low") {
+            bloodpressure = Math.floor(Math.random() * (80 - 50 + 1)) + 50;
+        }
+    } else {
+        // handle the case where no option is selected
     }
 }
 
@@ -134,19 +174,43 @@ function bloodPressure() {
 
 
 function glucoseLevel() {
-    let option1 = document.getElementById("glucose1");
-    let option2 = document.getElementById("glucose2");
-    let option3 = document.getElementById("glucose3");
-    let option4 = document.getElementById("glucose4");
+    // let option1 = document.getElementById("glucose1");
+    // let option2 = document.getElementById("glucose2");
+    // let option3 = document.getElementById("glucose3");
+    // let option4 = document.getElementById("glucose4");
 
-    if (option1.checked) {
-        glucose = Math.floor(Math.random() * (180 - 140 + 1)) + 140;
-    } else if (option2.checked) {
-        glucose = Math.floor(Math.random() * (160 - 120 + 1)) + 120;
-    } else if (option3.checked) {
-        glucose = Math.floor(Math.random() * (140 - 100 + 1)) + 100;
-    } else if (option4.checked) {
-        glucose = Math.floor(Math.random() * (120 - 80 + 1)) + 80;
+    // if (option1.checked) {
+    //     glucose = Math.floor(Math.random() * (180 - 140 + 1)) + 140;
+    // } else if (option2.checked) {
+    //     glucose = Math.floor(Math.random() * (160 - 120 + 1)) + 120;
+    // } else if (option3.checked) {
+    //     glucose = Math.floor(Math.random() * (140 - 100 + 1)) + 100;
+    // } else if (option4.checked) {
+    //     glucose = Math.floor(Math.random() * (120 - 80 + 1)) + 80;
+    // }
+
+    const glucoseSelect = document.getElementById("glucose-select");
+    if (glucoseSelect !== null) {
+
+        switch (glucoseSelect.value) {
+            case "1":
+                glucose = Math.floor(Math.random() * (180 - 140 + 1)) + 140;
+                break;
+            case "2":
+                glucose = Math.floor(Math.random() * (160 - 120 + 1)) + 120;
+                break;
+            case "3":
+                glucose = Math.floor(Math.random() * (140 - 100 + 1)) + 100;
+                break;
+            case "4":
+                glucose = Math.floor(Math.random() * (120 - 80 + 1)) + 80;
+                break;
+            default:
+                glucose = 0;
+        }
+    }
+    else {
+        // 
     }
 }
 
@@ -209,33 +273,60 @@ function calculatePedigree() {
 
 
 function storeAge() {
-  let inputAge = document.getElementById("ageInput").value;
-  if (Number.isInteger(parseInt(inputAge))) {
-    age = parseInt(inputAge);
-  } else {
-    alert("Please enter a valid integer for age.");
-  }
+    let inputAge = document.getElementById("ageInput");
+    if (inputAge !== null) {
+        if (Number.isInteger(parseInt(inputAge))) {
+            age = parseInt(inputAge);
+        } else {
+            alert("Please enter a valid integer for age.");
+        }
+    }
+    else {
+
+    }
+
 }
 
 
 
-function calculateBMI() {
-  const bmiInput = document.getElementById("bmi-input");
-  BMI = parseFloat(bmiInput.value);
+function calculatebmi() {
+    const bmiInput = document.getElementById("bmi-input");
+    let bmi = parseFloat(bmiInput);
+    return bmi;
 }
 
 function storePregnancy() {
-    pregnancy = parseInt(document.getElementById("pregnancy").value);
+    const pregInput = document.getElementById("pregnancy");
+    let preg = parseFloat(pregInput);
+    return preg;
+    // pregnancy = parseInt(document.getElementById("pregnancy"));
 }
 
 
 function MainFunction() {
+    document.write("saqlain CR hai");
+
     tricepThickness();
     bloodPressure();
     glucoseLevel();
     insulinDose();
     calculatePedigree();
     storeAge();
-    calculateBMI();
+    calculatebmi();
     storePregnancy();
+
+    // const formData = {
+    //     pregnancies : $(pregnancy),
+    //     glucose : $(glucose),
+    //     blood_pressure : $(bloodpressure),
+    //     thickness : $(thickness),
+    //     insulin : $(insulin),
+    //     bmi : $(bmi),
+    //     Pedigree : $(pedigree),
+    //     Age : $(age)
+    // }
+
+    // convertedData = JSON.stringify(formData)
+    // console.log(convertedData)
+
 }

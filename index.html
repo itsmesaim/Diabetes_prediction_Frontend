@@ -18,10 +18,13 @@
           <img src="./images/img1.jpg" style="width: auto; height: auto;"><br>
         </picture>
         <h2>Let us help you beat diabetes before it beats you.</h2>
-        <p id="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in rutrum enim, nec ultrices
-          arcu. Proin in nisl in quam euismod convallis. Curabitur eu felis tempor, laoreet ex ac, aliquet erat.
-          Maecenas egey ligula id tellus interdum lobortis. Curabitur dapibus eu massa id congue. Duis accumsan massa et
-          dictum.</p>
+        <p id="paragraph">
+          Welcome to our website for predicting diabetes risk. Our innovative machine learning algorithms analyze your
+          age, gender, BMI, family history, and lifestyle to accurately predict your likelihood of developing diabetes.
+          Get convenient and reliable risk assessment from the comfort of your home with our user-friendly interface and
+          comprehensive report. Take control of your health with the most accurate and reliable predictive analytics for
+          diabetes.
+        </p>
 
       </div>
     </div>
@@ -54,10 +57,10 @@
         <p><input type="radio" onchange="this.className = ''" name="1" value="0-10">Hard and dense (like you can't pinch
           any
           flesh)<br></p> <br>
-          <!-- <a href="#pressure">
+        <!-- <a href="#pressure">
             <button onclick="tricepThickness();" id="nextBtn">Next</button>
           </a> -->
-        
+
 
 
       </div>
@@ -86,10 +89,12 @@
       </div>
 
       <div class="element">
-        <p><input type="radio" onchange="this.className = ''" name="2" value="80-130" id="pressure1">Yes, I currently take medication for high blood
+        <p><input type="radio" onchange="this.className = ''" name="2" value="high" id="pressure1">Yes, I currently take
+          medication for high blood
           pressure<br></p>
-        <p><input type="radio" onchange="this.className = ''" name="2" value="50-80" id="pressure2"> No, I have never taken medication for high or
-          low bloat pressure.<br></p><br>
+        <p><input type="radio" onchange="this.className = ''" name="2" value="low" id="pressure2"> No, I have never
+          taken medication for high or
+          low blood pressure.<br></p><br>
 
       </div>
       <div class="description" style="display: none;">To estimate your triceps skin fold thickness using this method,
@@ -116,10 +121,13 @@
       </div>
 
       <div class="element">
-        <p><input type="radio" onchange="this.className = ''" name="3" id="glucose1">Within the past hour<br></p>
-        <p><input type="radio" onchange="this.className = ''" name="3" id="glucose2"> Within the past 2-3 hours<br></p>
-        <p><input type="radio" onchange="this.className = ''" name="3" id="glucose3"> Within the past 4-6 hours<br></p>
-        <p><input type="radio" onchange="this.className = ''" name="3" id="glucose4"> Within the past 7-12 hours<br></p><br>
+        <select id="glucose-select">
+          <p><input type="radio" onchange="this.className = ''" name="3" value="1">Within the past hour<br></p>
+          <p><input type="radio" onchange="this.className = ''" name="3" value="2"> Within the past 2-3 hours<br></p>
+          <p><input type="radio" onchange="this.className = ''" name="3" value="3"> Within the past 4-6 hours<br></p>
+          <p><input type="radio" onchange="this.className = ''" name="3" value="4"> Within the past 7-12 hours<br></p>
+          <br>
+        </select>
       </div>
       <div class="description" style="display: none;">*Plasma glucose concentration is a measure of the amout of sugar
         in your blood. It is an important indicator of your overall health and can be used to diagnose and monitor
@@ -145,11 +153,14 @@
       <div class="element">
 
         <p><input type="radio" onchange="this.className = ''" name="4" required value="0-5">No symptoms<br></p>
-        <p><input type="radio" onchange="this.className = ''" name="4" value="5-10">Mild symptoms (slight shakiness, Increased head
+        <p><input type="radio" onchange="this.className = ''" name="4" value="5-10">Mild symptoms (slight shakiness,
+          Increased head
           rate, or mild sweating) <br></p>
-        <p><input type="radio" onchange="this.className = ''" name="4" value="10-15">Moderate symptoms (signIticant shakiness,
+        <p><input type="radio" onchange="this.className = ''" name="4" value="10-15">Moderate symptoms (signIticant
+          shakiness,
           Increased heart rate, sweating, or mild confusion) <br></p>
-        <p><input type="radio" onchange="this.className = ''" name="4" value="15-20">Severe symptoms ( extreme shakiness,increased
+        <p><input type="radio" onchange="this.className = ''" name="4" value="15-20">Severe symptoms ( extreme
+          shakiness,increased
           heart rate, sweating,confusion,or loss of consciousness)<br></p><br>
       </div>
       <div class="description" style="display: none;">This question is about your 2-hour serum insulin level. By asking
@@ -172,8 +183,10 @@
 
       <div class="element">
         <p><input type="radio" onchange="this.className = ''" name="5" value="0">No<br></p>
-        <p><input type="radio" onchange="this.className = ''" name="5" value="0.5-1.5"> yes:grandparenst uncle aunt first cousin<br></p>
-        <p><input type="radio" onchange="this.className = ''" name="5" value="1.5-2.5"> yes:brother sister own child parent<br> </p><br>
+        <p><input type="radio" onchange="this.className = ''" name="5" value="0.5-1.5"> yes:grandparenst uncle aunt
+          first cousin<br></p>
+        <p><input type="radio" onchange="this.className = ''" name="5" value="1.5-2.5"> yes:brother sister own child
+          parent<br> </p><br>
       </div>
       <div class="description" style="display: none;">To estimate your triceps skin fold thickness using this method,
         lightly pinch the skin on the back of your upper arm, between your shoulder and elbow, with your thumb and
@@ -198,7 +211,7 @@
 
       <div class="element">
 
-        <p><input type="number" placeholder="Enter here...." oninput="this.className = ''" id="ageInput"><br></p>
+        <p><input placeholder="Enter here...." oninput="this.className = ''" id="ageInput"><br></p>
 
         <!-- <p><input type="radio" onchange="this.className = ''" name="6"> Under 45 years<br></p>
         <p><input type="radio" onchange="this.className = ''" name="6"> 45-54 years<br></p>
@@ -227,7 +240,7 @@
       </div>
 
       <div class="element">
-        <p><input type="number" id="bmi-input" placeholder="Enter here...." oninput="this.className = ''"><br></p>
+        <p><input id="bmi-input" placeholder="Enter here...." oninput="this.className = ''"><br></p>
         <!--     
     <p><input type="radio"onchange="this.className = ''" name="7">No<br></p>
     <p><input type="radio" onchange="this.className = ''" name="7"> yes:grandparenst uncle aunt first cousin<br></p>
@@ -255,7 +268,7 @@
       </div>
 
       <div class="element">
-        <p><input placeholder="Enter here...." oninput="this.className = ''" min="0" required><br></p>
+        <p><input placeholder="Enter here...." oninput="this.className = ''" min="0" id="pregnancy" required><br></p>
       </div>
       <div class="description" style="display: none;">To estimate your triceps skin fold thickness using this method,
         lightly pinch the skin on the back of your upper arm, between your shoulder and elbow, with your thumb and
@@ -266,9 +279,11 @@
         <button style="float: right;" onclick="back(7,event)">Back </button>
       </div>
     </div>
-    <div>
+
+    <!-- <div>
       <button onclick="MainFunction()">submit</button>
-    </div>
+    </div> -->
+
     <div style="overflow:auto;">
       <div style="float:left;">
         <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
