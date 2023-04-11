@@ -206,7 +206,7 @@ function glucoseLevel() {
                 glucose = Math.floor(Math.random() * (120 - 80 + 1)) + 80;
                 break;
             default:
-                glucose = 0;
+                break;
         }
     }
     else {
@@ -304,7 +304,6 @@ function storePregnancy() {
 
 
 function MainFunction() {
-    document.write("saqlain CR hai");
 
     tricepThickness();
     bloodPressure();
